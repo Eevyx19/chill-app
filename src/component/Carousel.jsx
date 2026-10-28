@@ -34,11 +34,13 @@ export default function Carousel(props) {
             <div className="relative">
                 <Button
                     className="absolute hidden md:block -left-5.5 top-[40%] z-10 border border-(--outline-border) bg-(--body-background) p-2 lg:p-2.5"
+                    type="button"
                 >
                     <ArrowLeft className="size-4 lg:size-6" />
                 </Button>
                 <Button
                     className="absolute hidden md:block -right-5.5 top-[40%] z-10 border border-(--outline-border) bg-(--body-background) p-2 lg:p-2.5"
+                    type="button"
                 >
                     <ArrowRight className="size-4 lg:size-6" />
                 </Button>

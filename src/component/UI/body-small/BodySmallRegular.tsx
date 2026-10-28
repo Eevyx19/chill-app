@@ -1,4 +1,6 @@
-export default function BodySmallRegular(props) {
+import type { TypographyProps } from "../../../types/typograph.types"
+
+export default function BodySmallRegular(props: TypographyProps) {
     const {
         element: Element,
         className,

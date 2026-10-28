@@ -1,4 +1,6 @@
-export default function BodyLargeSemibold(props) {
+import type { TypographyProps } from "../../../types/typograph.types"
+
+export default function BodyLargeSemibold(props: TypographyProps) {
     const {
         element: Element,
         className,

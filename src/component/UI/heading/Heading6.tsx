@@ -1,4 +1,6 @@
-export default function Heading6(props) {
+import type { TypographyProps } from "../../../types/typograph.types"
+
+export default function Heading6(props: TypographyProps) {
     const {
         element: Element,
         className,

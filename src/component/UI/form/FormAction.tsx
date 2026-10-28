@@ -2,21 +2,23 @@ import Button from "../Button";
 import BodyMediumSemibold from '../body-medium/BodyMediumSemibold';
 import BodySmallMedium from "../body-small/BodySmallMedium";
 
-export default function FormAction(props) {
+interface FormActionProps {
+    label: string;
+    iconImage: string
+    variant: "login" | "register"
+}
 
+export default function FormAction(props: FormActionProps) {
+
+    const { label, iconImage, variant } = props
     
-    const {
-        label,
-        iconImage
-    } = props
-    
-    const hoverBackgrounButton = label === "Masuk" ? "hover:bg-(--primary-default)"
+    const hoverBackgroundButton = variant === "login" ? "hover:bg-(--primary-default)"
         : "hover:bg-(--success-default)";
 
     return (
         <div className="flex flex-col justify-center items-center gap-1 md:gap-2">
             <Button
-                className={`${hoverBackgrounButton} w-full bg-(--extra-background) md:border border-(--outline-border) border-[0.5px] font-semibold px-3 sm:px-4 md:px-5 py-2 sm:py-3 md:py-4`}
+                className={`${hoverBackgroundButton} w-full bg-(--extra-background) md:border border-(--outline-border) border-[0.5px] font-semibold px-3 sm:px-4 md:px-5 py-2 sm:py-3 md:py-4`}
                 type="submit"
             >
                 <BodyMediumSemibold

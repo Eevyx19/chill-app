@@ -1,4 +1,6 @@
-export default function BodySmallMedium(props) {
+import type { TypographyProps } from "../../../types/typograph.types"
+
+export default function BodySmallMedium(props: TypographyProps) {
     const {
         element: Element,
         className,
