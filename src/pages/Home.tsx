@@ -1,5 +1,6 @@
 import Hero from "../component/Hero"
 import Carousel from "../component/Carousel"
+import { bannerMovie } from "../component/data/movie"
 import { continueWatch } from "../component/data/movie"
 import { otherWatch } from "../component/data/movie"
 
@@ -7,7 +8,7 @@ const HomePage = () => {
 
     return (
         <>
-            <Hero />
+            <Hero movie={bannerMovie} />
             <Carousel title="Melanjutkan Tonton Film" movies={continueWatch} variant="landscape" />
             <Carousel title="Top Rating Film dan Series Hari ini" movies={otherWatch} variant="potrait" />
             <Carousel title="Film Trending" movies={otherWatch} variant="potrait" />

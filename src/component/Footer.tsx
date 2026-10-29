@@ -3,24 +3,29 @@ import BodyMediumMedium from "./UI/body-medium/BodyMediumMedium";
 import BodyMediumBold from "./UI/body-medium/BodyMediumBold";
 import BodyMediumRegular from "./UI/body-medium/BodyMediumRegular";
 import Logo from "../assets/images/Logo.png"
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 
+interface GenreType {
+    id: string;
+    label: string;
+    path: string;
+}
 
 export default function Footer() {
-    const genreList = [
-        "Aksi",
-        "Anak-anak",
-        "Britania",
-        "Drama",
-        "Fantasi & Ilmiah",
-        "Kejahatan",
-        "KDrama",
-        "Komedi",
-        "Petualangan",
-        "Perang",
-        "Romantis",
-        "Sains & Alam",
-        "Thriller"
+    const genreList: GenreType[] = [
+        { id: "1", label: "Aksi", path: "/" },
+        { id: "2", label: "Anak-anak", path: "/" },
+        { id: "3", label: "Britania", path: "/" },
+        { id: "4", label: "Drama", path: "/" },
+        { id: "5", label: "Fantasi & Ilmiah", path: "/" },
+        { id: "6", label: "Kejahatan", path: "/" },
+        { id: "7", label: "KDrama", path: "/" },
+        { id: "8", label: "Komedi", path: "/" },
+        { id: "9", label: "Petualangan", path: "/" },
+        { id: "10", label: "Perang", path: "/" },
+        { id: "11", label: "Romantis", path: "/" },
+        { id: "12", label: "Sains & Alam", path: "/" },
+        { id: "13", label: "Thriller", path: "/" }
     ]
     return (
         <footer className="w-full flex flex-col lg:flex-row justify-between px-5 md:px-15 lg:px-20 py-5 md:py-7.5 lg:py-10 border-t border-(--outline-border) gap-10 lg:gap-0">
@@ -48,16 +53,18 @@ export default function Footer() {
                             <ChevronRight className="sm:hidden size-6" />
                         </div>
                         <ul className="hidden sm:grid grid-cols-3 xl:grid-cols-4 text-(--secondary-text)">
-                            {genreList.map((list, index) => (
-                                <li key={index}>
-                                    <Link>
+                            {genreList.map((list) => (
+                                <li key={list.id}>
+                                    <NavLink
+                                        to={list.path}
+                                    >
                                         <BodyMediumMedium
                                             element="span"
                                             className="text-nowrap"
                                         >
-                                            {list}
+                                            {list.label}
                                         </BodyMediumMedium>
-                                    </Link>
+                                    </NavLink>
                                 </li>
 
                             ))}

@@ -3,19 +3,30 @@ import Logo from "../assets/images/Logo.png"
 import Profile from "../assets/images/profile.png"
 import { ChevronDown, SquareArrowRightExit } from "lucide-react"
 import { Star, User } from "@filled-lucide/react"
+import type { ComponentType, SVGProps } from "react"
+
+interface NavItem {
+    id: string;
+    label: string;
+    to: string;
+}
+
+interface NavProfileItem extends NavItem {
+    icon: ComponentType<SVGProps<SVGSVGElement>>;
+}
 
 const Navbar = () => {
 
-    const navList = [
-        { id: 1, label: "Series", to: "#" },
-        { id: 2, label: "Film", to: "#" },
-        { id: 3, label: "Daftar Saya", to: "#" }
+    const navList:NavItem[] = [
+        { id: "1", label: "Series", to: "#" },
+        { id: "2", label: "Film", to: "#" },
+        { id: "3", label: "Daftar Saya", to: "#" }
     ]
 
-    const navProfile = [
-        { id: 1, label: "Profil Saya", to: "#", icon: User },
-        { id: 2, label: "Ubah Premium", to: "#", icon: Star },
-        { id: 3, label: "Keluar", to: "#", icon: SquareArrowRightExit }
+    const navProfile: NavProfileItem[] = [
+        { id: "1", label: "Profil Saya", to: "#", icon: User },
+        { id: "2", label: "Ubah Premium", to: "#", icon: Star },
+        { id: "3", label: "Keluar", to: "#", icon: SquareArrowRightExit }
     ]
 
     return (

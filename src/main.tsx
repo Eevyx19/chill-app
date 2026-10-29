@@ -8,7 +8,7 @@ import RegisterPage from './pages/Register'
 import MainLayout from './layouts/MainLayout'
 import HomePage from './pages/Home'
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>

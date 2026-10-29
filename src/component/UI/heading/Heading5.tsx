@@ -1,4 +1,4 @@
-export default function Heading5(props) {
+export default function Heading5(props: import("../../../types/typograph.types").TypographyProps) {
     const {
         element: Element,
         children,

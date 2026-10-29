@@ -4,8 +4,17 @@ import Heading6 from "./UI/heading/Heading6";
 import BodyLargeMedium from "./UI/body-large/BodyLargeMedium";
 import BodyLargeSemibold from "./UI/body-large/BodyLargeSemibold";
 import { Play } from "@filled-lucide/react";
+import type { ResponseMovie } from "../types/response-movie.types";
 
-export default function MoviePreview(props) {
+interface MoviePreviewProps {
+    movie: ResponseMovie;
+    rect: DOMRect;
+    variant: string;
+    onMouseEnter: () => void;
+    onMouseLeave: React.MouseEventHandler<HTMLElement>;
+}
+
+export default function MoviePreview(props: MoviePreviewProps) {
     const { movie, rect, variant, onMouseEnter, onMouseLeave } = props
 
     const isLandscape = variant === "landscape"
@@ -23,7 +32,7 @@ export default function MoviePreview(props) {
                     window.innerWidth - previewWidth - viewportPadding))
             }}>
             <div className="relative h-63.75">
-                <img src={movie.img} className="h-full w-full object-cover" alt="" />
+                <img src={isLandscape ? movie.img : movie.backdrop} className="h-full w-full object-cover" alt="" />
                 <div className="absolute inset-0 bg-linear-to-t from-(--paper-background)/30 via-(--paper-background)/20 to-transparent" />
             </div>
             <div className="flex flex-col justify-center gap-4 p-6">

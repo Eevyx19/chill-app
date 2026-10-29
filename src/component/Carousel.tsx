@@ -2,27 +2,19 @@ import { ArrowLeft, ArrowRight, } from "lucide-react";
 import Button from "./UI/Button";
 import Heading3 from "./UI/heading/Heading3";
 import MovieCard from "./MovieCard";
-import { useRef, useState } from "react";
 import MoviePreview from "./MoviePreview";
+import type { ResponseMovie } from "../types/response-movie.types";
+import useCarousel from "../hooks/useCarousel";
 
-export default function Carousel(props) {
-    const [preview, setPreview] = useState(null)
-    const setTimer = useRef()
-    const clearTimer = useRef()
+interface CarouselProps {
+    title: string;
+    movies: ResponseMovie[];
+    variant: "landscape" | "potrait";
+}
 
-    const handleMouseHover = (movie, e) => {
-        const rect = e.currentTarget.getBoundingClientRect()
-        clearTimeout(clearTimer.current)
-        clearTimeout(setTimer.current)
-        setTimer.current = window.setTimeout(() => {
-            setPreview({ movie, rect: rect })
-        }, 60)
-    }
 
-    const handleMouseLeave = () => {
-        clearTimeout(clearTimer.current)
-        clearTimer.current = window.setTimeout(() => setPreview(null), 60)
-    }
+export default function Carousel(props: CarouselProps) {
+    const { preview, clearTimer, handleMouseHover, handleMouseLeave } = useCarousel()
 
     const { title, movies, variant } = props
 
@@ -63,7 +55,7 @@ export default function Carousel(props) {
                     movie={preview.movie}
                     rect={preview.rect}
                     variant={variant}
-                    onMouseEnter={() => clearTimeout(clearTimer.current)}
+                    onMouseEnter={() => clearTimeout(clearTimer.current ?? undefined)}
                     onMouseLeave={handleMouseLeave}
                 />
             )}
